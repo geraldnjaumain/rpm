@@ -77,14 +77,14 @@ export function Navbar({
       role="tablist"
       aria-label="main navigation"
       style={{
-        // Compact, refined proportional height, slant, and gap
+        // Vertical height preserved exactly as requested
         ["--nav-h" as any]: "clamp(38px, 4vw, 42px)",
         ["--slant" as any]: "calc(var(--nav-h) * 0.5612)",
         ["--gap" as any]: "calc(var(--nav-h) * 0.35)",
       }}
       className={cn(
         "relative flex select-none items-stretch overflow-hidden bg-[#0D1F2D]",
-        "h-[var(--nav-h)] w-full max-w-[340px] sm:max-w-[480px] md:max-w-[500px]",
+        "h-[var(--nav-h)] w-full max-w-[360px] sm:max-w-[560px] md:max-w-[600px]",
         className
       )}
     >
@@ -134,7 +134,7 @@ export function Navbar({
               "relative flex min-w-0 h-full items-center justify-center border-0 font-sans outline-none overflow-hidden",
               "text-xs sm:text-[14px] md:text-[15px] font-medium tracking-normal",
               "transition-all duration-200 ease-out cursor-pointer select-none",
-              "px-3 sm:px-6",
+              "px-4 sm:px-8 md:px-10",
               paddingAdjust,
               // Orange tab has white text, Blueish tabs have black text
               isActive
