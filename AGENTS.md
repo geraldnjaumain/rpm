@@ -20,12 +20,20 @@ These rules are mandatory and must be strictly followed for all code and design 
    - Never use sparkle, star, magic, or flash/lightning icons.
    - Never place backgrounds or container pills on icons inside a card; icons must sit directly on the card surface.
 
-2. **Zero Borders**:
+2. **Zero Borders & Blue-Derived Palette**:
    - We shall NOT use borders anywhere (`border-0`, `border-none`).
-   - Surfaces are delineated solely through Apple-style subtle tonal background contrast (`#000000`, `#1c1c1e`, `#2c2c2e`, `#3a3a3c`).
+   - Surfaces are delineated solely through Apple-style subtle tonal background contrast.
+   - Blacks and grays must be derived from blue using this exact palette:
+     - `#0D1F2D`: Midnight Navy (base canvas background)
+     - `#132637`: Deep Navy (elevated cards and container surfaces)
+     - `#193146`: Slate Navy (secondary surfaces, controls, inputs, and track states)
+     - `#203C55`: Highlight Navy (hover, focus, and active press states)
+     - `#9EA3B0`: Slate Blue (secondary / muted typography and subtle accents)
+     - `#E4C3AD`: Almond Peach (brand accent, primary actions, and active indicator line)
+     - `#FAE1DF`: Soft Blush / Cream (primary foreground typography)
 
 3. **No Tinted Buttons**:
-   - We shall not use tinted buttons. Buttons must be neutral monochrome (e.g. system white, `#2c2c2e`, subtle press state).
+   - Primary buttons use the accent `#E4C3AD` with `#0D1F2D` text; secondary and outline buttons use `#193146` with `#FAE1DF` text and `#203C55` hover state.
 
 4. **Minimal Custom Classnames**:
    - Keep custom classnames to a minimum; always prefer Tailwind primitives and utility classes.
@@ -45,14 +53,14 @@ These rules are mandatory and must be strictly followed for all code and design 
 8. **No Purple**:
    - Strictly no purple colors, gradients, tints, or accents anywhere.
 
-9. **No Tints**:
-   - No color tints on backgrounds, borders, cards, or buttons; stick to neutral Apple dark grays and white.
+9. **No Background Animations**:
+   - Strictly no background canvas, shader, or ambient moving background animations. Clean, solid, refined dark surfaces.
 
 10. **Ripple Animations**:
     - Interactive elements must use subtle, tasteful Apple-style press/ripple feedback.
 
 11. **Dark Themed**:
-    - Default and strictly dark themed across the entire application.
+    - Default and strictly dark themed across the entire application using the blue-derived dark palette.
 
 12. **No Uppercase**:
     - Strictly no uppercase on the site; all text must be lowercase.
@@ -84,8 +92,9 @@ These rules are mandatory and must be strictly followed for all code and design 
     - If the error is dismissible, use toast notifications with refined animations.
     - If the error requires user action, use an inline alert or a modal dialog.
 
-21. **Apple Segmented Tabs**:
-    - Replace shadcn default tabs with a traditional Apple Segmented Control approach (sliding pill/segmented container, no clunky borders or offsets).
+21. **Conventional Tabs**:
+    - Never use shadcn default floating pill box tabs.
+    - Use conventional horizontal tabs (open baseline with `#E4C3AD` active underline indicator or docked folder tabs).
 
 22. **Skills Installation**:
     - Before using a certain technology or package, install the skill in `.agents/skills/`.

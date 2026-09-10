@@ -22,7 +22,7 @@ export function NavigationSection() {
         </CardHeader>
         <CardContent className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <span className="text-xs text-neutral-400">underline tab bar (standard conventional)</span>
+            <span className="text-xs text-[#9EA3B0]">underline tab bar (standard conventional)</span>
             <Tabs defaultValue="alpha" variant="underline">
               <TabsList>
                 <TabsTrigger value="alpha">alpha module</TabsTrigger>
@@ -36,14 +36,14 @@ export function NavigationSection() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <span className="text-xs text-neutral-400">folder tab bar (docked tabs)</span>
+            <span className="text-xs text-[#9EA3B0]">folder tab bar (docked tabs)</span>
             <Tabs defaultValue="tab1" variant="folder">
               <TabsList>
                 <TabsTrigger value="tab1">design</TabsTrigger>
                 <TabsTrigger value="tab2">code</TabsTrigger>
                 <TabsTrigger value="tab3">deploy</TabsTrigger>
               </TabsList>
-              <div className="rounded-[8px] bg-[#1c1c1e] p-4 text-xs text-neutral-300">
+              <div className="rounded-[8px] bg-[#193146] p-4 text-xs text-[#FAE1DF]">
                 <TabsContent value="tab1">design systems and typography specifications</TabsContent>
                 <TabsContent value="tab2">typescript, react and next.js app router</TabsContent>
                 <TabsContent value="tab3">edge networks, serverless infrastructure</TabsContent>
@@ -113,7 +113,7 @@ export function NavigationSection() {
           </DropdownMenu>
 
           <ContextMenu>
-            <ContextMenuTrigger className="flex h-12 w-48 items-center justify-center rounded-[8px] bg-[#2c2c2e] text-xs text-neutral-300 select-none">
+            <ContextMenuTrigger className="flex h-12 w-48 items-center justify-center rounded-[8px] bg-[#193146] text-xs text-[#FAE1DF] select-none">
               right click this surface
             </ContextMenuTrigger>
             <ContextMenuContent>
@@ -142,12 +142,12 @@ export function NavigationSection() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink className="px-3 py-1.5 text-xs text-neutral-300 hover:text-white" href="#">
+                <NavigationMenuLink className="px-3 py-1.5 text-xs text-[#9EA3B0] hover:text-[#FAE1DF]" href="#">
                   services
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className="px-3 py-1.5 text-xs text-neutral-300 hover:text-white" href="#">
+                <NavigationMenuLink className="px-3 py-1.5 text-xs text-[#9EA3B0] hover:text-[#FAE1DF]" href="#">
                   work
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -162,7 +162,7 @@ export function NavigationSection() {
           <CardDescription>fuzzy command search and action execution</CardDescription>
         </CardHeader>
         <CardContent>
-          <Command className="rounded-[8px] bg-[#121214] max-w-sm">
+          <Command className="rounded-[8px] bg-[#0D1F2D] max-w-sm">
             <CommandInput placeholder="type a command or search..." />
             <CommandList>
               <CommandEmpty>no results found.</CommandEmpty>

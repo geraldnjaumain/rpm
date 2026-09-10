@@ -25,7 +25,7 @@ const chartData = [
 ]
 
 const chartConfig = {
-  latency: { label: "latency (ms)", color: "#f5f5f7" },
+  latency: { label: "latency (ms)", color: "#E4C3AD" },
 }
 
 export function DataSection() {
@@ -50,19 +50,19 @@ export function DataSection() {
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="font-medium text-white">auth cluster</TableCell>
-                <TableCell className="text-[#8e8e93]">operational</TableCell>
-                <TableCell className="text-right text-white">99.99%</TableCell>
+                <TableCell className="font-medium text-[#FAE1DF]">auth cluster</TableCell>
+                <TableCell className="text-[#9EA3B0]">operational</TableCell>
+                <TableCell className="text-right text-[#FAE1DF]">99.99%</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium text-white">edge proxy</TableCell>
-                <TableCell className="text-[#8e8e93]">operational</TableCell>
-                <TableCell className="text-right text-white">100.0%</TableCell>
+                <TableCell className="font-medium text-[#FAE1DF]">edge proxy</TableCell>
+                <TableCell className="text-[#9EA3B0]">operational</TableCell>
+                <TableCell className="text-right text-[#FAE1DF]">100.0%</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium text-white">analytics queue</TableCell>
-                <TableCell className="text-[#8e8e93]">draining</TableCell>
-                <TableCell className="text-right text-white">99.85%</TableCell>
+                <TableCell className="font-medium text-[#FAE1DF]">analytics queue</TableCell>
+                <TableCell className="text-[#9EA3B0]">draining</TableCell>
+                <TableCell className="text-right text-[#FAE1DF]">99.85%</TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -87,16 +87,16 @@ export function DataSection() {
               </AccordionItem>
             </Accordion>
 
-            <Separator className="my-2 bg-[#2c2c2e]" />
+            <Separator className="my-2 bg-[#193146]" />
 
             <Collapsible open={isOpen} onOpenChange={setIsOpen}>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium">extended telemetry details</span>
+                <span className="text-xs font-medium text-[#FAE1DF]">extended telemetry details</span>
                 <CollapsibleTrigger asChild>
                   <Button size="xs" variant="secondary">{isOpen ? "hide" : "show"}</Button>
                 </CollapsibleTrigger>
               </div>
-              <CollapsibleContent className="pt-2 text-xs text-neutral-400">
+              <CollapsibleContent className="pt-2 text-xs text-[#9EA3B0]">
                 host: node-edge-01.leethe.internal | ip: 10.0.4.12
               </CollapsibleContent>
             </Collapsible>
@@ -113,7 +113,7 @@ export function DataSection() {
               mode="single"
               selected={date}
               onSelect={setDate}
-              className="rounded-[8px] bg-[#121214] p-2 select-none"
+              className="rounded-[8px] bg-[#0D1F2D] p-2 select-none"
             />
           </CardContent>
         </Card>
@@ -128,9 +128,9 @@ export function DataSection() {
           <CardContent>
             <ChartContainer config={chartConfig} className="h-44 w-full">
               <BarChart data={chartData}>
-                <XAxis dataKey="module" tickLine={false} axisLine={false} stroke="#8e8e93" fontSize={11} />
+                <XAxis dataKey="module" tickLine={false} axisLine={false} stroke="#9EA3B0" fontSize={11} />
                 <ChartTooltip content={<ChartTooltipContent />} />
-                <Bar dataKey="latency" fill="#f5f5f7" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="latency" fill="#E4C3AD" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ChartContainer>
           </CardContent>
@@ -142,7 +142,7 @@ export function DataSection() {
             <CardDescription>scrollable containers and adjustable split layout</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
-            <ScrollArea className="h-24 w-full rounded-[8px] bg-[#121214] p-3 text-xs text-neutral-300">
+            <ScrollArea className="h-24 w-full rounded-[8px] bg-[#0D1F2D] p-3 text-xs text-[#9EA3B0]">
               <div className="flex flex-col gap-2">
                 <div>log-001: connection verified</div>
                 <div>log-002: payload dispatched</div>
@@ -152,14 +152,14 @@ export function DataSection() {
               </div>
             </ScrollArea>
 
-            <div className="h-20 w-full overflow-hidden rounded-[8px] bg-[#121214]">
+            <div className="h-20 w-full overflow-hidden rounded-[8px] bg-[#0D1F2D]">
               <ResizablePanelGroup orientation="horizontal">
                 <ResizablePanel defaultSize={50}>
-                  <div className="flex h-full items-center justify-center p-2 text-[11px] text-neutral-400">panel a</div>
+                  <div className="flex h-full items-center justify-center p-2 text-[11px] text-[#9EA3B0]">panel a</div>
                 </ResizablePanel>
                 <ResizableHandle withHandle />
                 <ResizablePanel defaultSize={50}>
-                  <div className="flex h-full items-center justify-center p-2 text-[11px] text-neutral-400">panel b</div>
+                  <div className="flex h-full items-center justify-center p-2 text-[11px] text-[#9EA3B0]">panel b</div>
                 </ResizablePanel>
               </ResizablePanelGroup>
             </div>
@@ -174,7 +174,7 @@ export function DataSection() {
             <CardDescription>16:9 proportion container</CardDescription>
           </CardHeader>
           <CardContent>
-            <AspectRatio ratio={16 / 9} className="flex items-center justify-center rounded-[8px] bg-[#2c2c2e] text-xs text-neutral-400">
+            <AspectRatio ratio={16 / 9} className="flex items-center justify-center rounded-[8px] bg-[#193146] text-xs text-[#9EA3B0]">
               16:9 container
             </AspectRatio>
           </CardContent>
@@ -186,9 +186,9 @@ export function DataSection() {
             <CardDescription>static loading shapes (no pulse)</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-2">
-            <Skeleton className="h-4 w-3/4 rounded-[4px] bg-[#2c2c2e]" />
-            <Skeleton className="h-4 w-1/2 rounded-[4px] bg-[#2c2c2e]" />
-            <Skeleton className="h-8 w-full rounded-[6px] bg-[#2c2c2e]" />
+            <Skeleton className="h-4 w-3/4 rounded-[4px] bg-[#193146]" />
+            <Skeleton className="h-4 w-1/2 rounded-[4px] bg-[#193146]" />
+            <Skeleton className="h-8 w-full rounded-[6px] bg-[#193146]" />
           </CardContent>
         </Card>
 
@@ -200,8 +200,8 @@ export function DataSection() {
           <CardContent>
             <Empty className="p-4">
               <EmptyHeader>
-                <EmptyTitle className="text-xs font-medium">no records found</EmptyTitle>
-                <EmptyDescription className="text-[11px] text-neutral-500">pipeline waiting for events</EmptyDescription>
+                <EmptyTitle className="text-xs font-medium text-[#FAE1DF]">no records found</EmptyTitle>
+                <EmptyDescription className="text-[11px] text-[#9EA3B0]">pipeline waiting for events</EmptyDescription>
               </EmptyHeader>
             </Empty>
           </CardContent>
@@ -217,13 +217,13 @@ export function DataSection() {
           <Carousel className="w-full max-w-xs">
             <CarouselContent>
               <CarouselItem>
-                <div className="flex h-20 items-center justify-center rounded-[8px] bg-[#2c2c2e] text-xs text-white">slide 1</div>
+                <div className="flex h-20 items-center justify-center rounded-[8px] bg-[#193146] text-xs text-[#FAE1DF]">slide 1</div>
               </CarouselItem>
               <CarouselItem>
-                <div className="flex h-20 items-center justify-center rounded-[8px] bg-[#2c2c2e] text-xs text-white">slide 2</div>
+                <div className="flex h-20 items-center justify-center rounded-[8px] bg-[#193146] text-xs text-[#FAE1DF]">slide 2</div>
               </CarouselItem>
               <CarouselItem>
-                <div className="flex h-20 items-center justify-center rounded-[8px] bg-[#2c2c2e] text-xs text-white">slide 3</div>
+                <div className="flex h-20 items-center justify-center rounded-[8px] bg-[#193146] text-xs text-[#FAE1DF]">slide 3</div>
               </CarouselItem>
             </CarouselContent>
             <CarouselPrevious />

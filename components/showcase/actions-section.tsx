@@ -84,7 +84,7 @@ export function ActionsSection() {
             <Badge variant="destructive">failed</Badge>
           </div>
 
-          <div className="flex items-center gap-1 text-xs text-neutral-400">
+          <div className="flex items-center gap-1 text-xs text-[#9EA3B0]">
             press <Kbd>⌘</Kbd> + <Kbd>k</Kbd>
           </div>
         </CardContent>

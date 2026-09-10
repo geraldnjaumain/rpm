@@ -27,7 +27,7 @@ export function OverlaysSection() {
         </CardHeader>
         <CardContent className="flex flex-wrap items-center gap-8">
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-neutral-400">indeterminate (sm/md/lg)</span>
+            <span className="text-xs text-[#9EA3B0]">indeterminate (sm/md/lg)</span>
             <div className="flex items-center gap-4">
               <Spinner variant="indeterminate" size="sm" />
               <Spinner variant="indeterminate" size="md" />
@@ -36,7 +36,7 @@ export function OverlaysSection() {
           </div>
 
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-neutral-400">determinate ({spinProgress}%)</span>
+            <span className="text-xs text-[#9EA3B0]">determinate ({spinProgress}%)</span>
             <div className="flex items-center gap-4">
               <Spinner variant="determinate" value={spinProgress} size="sm" />
               <Spinner variant="determinate" value={spinProgress} size="md" />
@@ -98,7 +98,7 @@ export function OverlaysSection() {
                 <DialogTitle>client project details</DialogTitle>
                 <DialogDescription>configure agency deployment parameters for client repository.</DialogDescription>
               </DialogHeader>
-              <div className="py-2 text-xs text-neutral-400">
+              <div className="py-2 text-xs text-[#9EA3B0]">
                 all project settings are synced securely across production clusters.
               </div>
             </DialogContent>
@@ -129,7 +129,7 @@ export function OverlaysSection() {
                 <SheetTitle>inspection panel</SheetTitle>
                 <SheetDescription>live connection stream metadata.</SheetDescription>
               </SheetHeader>
-              <div className="py-4 text-xs text-neutral-400">
+              <div className="py-4 text-xs text-[#9EA3B0]">
                 side sheet content slides smoothly from the edge.
               </div>
             </SheetContent>
@@ -144,7 +144,7 @@ export function OverlaysSection() {
                 <DrawerTitle>bottom drawer</DrawerTitle>
                 <DrawerDescription>pull-up drawer for touch interfaces.</DrawerDescription>
               </DrawerHeader>
-              <div className="p-4 text-xs text-neutral-400">
+              <div className="p-4 text-xs text-[#9EA3B0]">
                 swipes down seamlessly to dismiss.
               </div>
             </DrawerContent>
@@ -154,7 +154,7 @@ export function OverlaysSection() {
             <PopoverTrigger asChild>
               <Button size="sm" variant="secondary">popover</Button>
             </PopoverTrigger>
-            <PopoverContent className="w-56 text-xs text-neutral-300">
+            <PopoverContent className="w-56 text-xs text-[#9EA3B0]">
               ambient popover overlay for contextual actions.
             </PopoverContent>
           </Popover>
@@ -172,7 +172,7 @@ export function OverlaysSection() {
             <HoverCardTrigger asChild>
               <Button size="sm" variant="ghost">hover card</Button>
             </HoverCardTrigger>
-            <HoverCardContent className="w-64 text-xs text-neutral-300">
+            <HoverCardContent className="w-64 text-xs text-[#9EA3B0]">
               hover over trigger to inspect extended agency information.
             </HoverCardContent>
           </HoverCard>

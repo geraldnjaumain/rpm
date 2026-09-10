@@ -9,7 +9,6 @@ import { Marker } from "@/components/ui/marker"
 import { Message, MessageContent, MessageAvatar } from "@/components/ui/message"
 import { Attachment, AttachmentContent, AttachmentTitle, AttachmentDescription } from "@/components/ui/attachment"
 import { Item, ItemTitle, ItemDescription, ItemGroup } from "@/components/ui/item"
-import { ShaderCanvas } from "@/components/ui/shader-canvas"
 import { FileIcon, UserCircleIcon, CheckCircleIcon } from "@s9-labs/solar-icons/line-duotone"
 
 export function CustomSection() {
@@ -41,14 +40,32 @@ export function CustomSection() {
         </CardContent>
       </Card>
 
-      <Card className="relative overflow-hidden min-h-[160px]">
-        <ShaderCanvas intensity={0.12} />
-        <CardHeader className="relative z-10">
-          <CardTitle>webgl ambient shader canvas</CardTitle>
-          <CardDescription>subtle, monochrome dark ambient motion without purple or glows</CardDescription>
+      <Card>
+        <CardHeader>
+          <CardTitle>brand color tokens</CardTitle>
+          <CardDescription>blue-derived midnight palette with almond peach and soft blush highlights</CardDescription>
         </CardHeader>
-        <CardContent className="relative z-10 text-xs text-neutral-400">
-          rendering continuous glsl fragment shader on hardware accelerated canvas context.
+        <CardContent className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="flex flex-col gap-1.5 p-3 rounded-[8px] bg-[#0D1F2D]">
+            <div className="size-5 rounded-full bg-[#0D1F2D] ring-1 ring-white/10" />
+            <span className="text-xs font-medium text-[#FAE1DF]">midnight</span>
+            <span className="text-[10px] text-[#9EA3B0]">#0D1F2D</span>
+          </div>
+          <div className="flex flex-col gap-1.5 p-3 rounded-[8px] bg-[#193146]">
+            <div className="size-5 rounded-full bg-[#9EA3B0]" />
+            <span className="text-xs font-medium text-[#FAE1DF]">slate blue</span>
+            <span className="text-[10px] text-[#9EA3B0]">#9EA3B0</span>
+          </div>
+          <div className="flex flex-col gap-1.5 p-3 rounded-[8px] bg-[#193146]">
+            <div className="size-5 rounded-full bg-[#E4C3AD]" />
+            <span className="text-xs font-medium text-[#FAE1DF]">almond peach</span>
+            <span className="text-[10px] text-[#9EA3B0]">#E4C3AD</span>
+          </div>
+          <div className="flex flex-col gap-1.5 p-3 rounded-[8px] bg-[#193146]">
+            <div className="size-5 rounded-full bg-[#FAE1DF]" />
+            <span className="text-xs font-medium text-[#FAE1DF]">soft blush</span>
+            <span className="text-[10px] text-[#9EA3B0]">#FAE1DF</span>
+          </div>
         </CardContent>
       </Card>
 
@@ -59,8 +76,8 @@ export function CustomSection() {
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
           <Marker variant="default">
-            <CheckCircleIcon size={14} className="text-neutral-400" />
-            <span>deployment verified at 00:00 utc</span>
+            <CheckCircleIcon size={14} className="text-[#9EA3B0]" />
+            <span className="text-[#9EA3B0]">deployment verified at 00:00 utc</span>
           </Marker>
 
           <Message align="start" className="flex items-start gap-3">
@@ -68,7 +85,7 @@ export function CustomSection() {
               <DicebearAvatar seed="agent-leethe" size="sm" />
             </MessageAvatar>
             <MessageContent>
-              <Bubble variant="secondary" className="rounded-[8px] p-3 text-xs">
+              <Bubble variant="secondary" className="rounded-[8px] bg-[#193146] text-[#FAE1DF] p-3 text-xs">
                 production cluster update deployed across all edge zones.
               </Bubble>
             </MessageContent>
@@ -76,7 +93,7 @@ export function CustomSection() {
 
           <Message align="end" className="flex items-start justify-end gap-3">
             <MessageContent>
-              <Bubble variant="default" className="rounded-[8px] p-3 text-xs bg-white text-black">
+              <Bubble variant="default" className="rounded-[8px] p-3 text-xs bg-[#E4C3AD] text-[#0D1F2D] font-medium">
                 acknowledged. latency benchmarks looking solid.
               </Bubble>
             </MessageContent>
@@ -94,11 +111,11 @@ export function CustomSection() {
             <CardDescription>file payloads and uploads</CardDescription>
           </CardHeader>
           <CardContent>
-            <Attachment state="done" className="p-2 rounded-[8px] bg-[#2c2c2e]">
-              <FileIcon size={20} className="text-neutral-300" />
+            <Attachment state="done" className="p-2 rounded-[8px] bg-[#193146]">
+              <FileIcon size={20} className="text-[#9EA3B0]" />
               <AttachmentContent>
-                <AttachmentTitle className="text-xs text-white">build-manifest.json</AttachmentTitle>
-                <AttachmentDescription className="text-[10px] text-neutral-400">12.4 kb</AttachmentDescription>
+                <AttachmentTitle className="text-xs text-[#FAE1DF]">build-manifest.json</AttachmentTitle>
+                <AttachmentDescription className="text-[10px] text-[#9EA3B0]">12.4 kb</AttachmentDescription>
               </AttachmentContent>
             </Attachment>
           </CardContent>
@@ -111,9 +128,9 @@ export function CustomSection() {
           </CardHeader>
           <CardContent>
             <ItemGroup>
-              <Item className="p-3 bg-[#2c2c2e] rounded-[8px] border-0">
-                <ItemTitle className="text-xs font-medium text-white">core license</ItemTitle>
-                <ItemDescription className="text-[11px] text-neutral-400">enterprise software agreement</ItemDescription>
+              <Item className="p-3 bg-[#193146] rounded-[8px] border-0">
+                <ItemTitle className="text-xs font-medium text-[#FAE1DF]">core license</ItemTitle>
+                <ItemDescription className="text-[11px] text-[#9EA3B0]">enterprise software agreement</ItemDescription>
               </Item>
             </ItemGroup>
           </CardContent>

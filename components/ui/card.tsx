@@ -11,7 +11,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-[8px] bg-[#1c1c1e] p-5 text-sm text-[#f5f5f7] select-none border-0 shadow-none ring-0",
+        "group/card flex flex-col gap-4 overflow-hidden rounded-[8px] bg-[#132637] p-5 text-sm text-[#FAE1DF] select-none border-0 shadow-none ring-0",
         size === "sm" && "p-3 gap-2",
         className
       )}
@@ -38,7 +38,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "text-base font-medium leading-tight text-white",
+        "text-base font-medium leading-tight text-[#FAE1DF]",
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-xs text-[#8e8e93]", className)}
+      className={cn("text-xs text-[#9EA3B0]", className)}
       {...props}
     />
   )

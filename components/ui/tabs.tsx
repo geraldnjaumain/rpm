@@ -41,7 +41,7 @@ function TabsList({
       className={cn(
         "flex items-center w-full select-none border-0",
         variant === "underline" &&
-          "gap-6 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-[#2c2c2e]",
+          "gap-6 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-[#193146]",
         variant === "folder" && "gap-1 items-end",
         className
       )}
@@ -62,9 +62,9 @@ function TabsTrigger({
       className={cn(
         "relative inline-flex items-center justify-center text-xs font-medium transition-all duration-150 outline-none select-none border-0 cursor-pointer",
         variant === "underline" &&
-          "pb-2.5 pt-1 px-0.5 text-[#8e8e93] hover:text-[#f5f5f7] data-[state=active]:text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:bg-white after:opacity-0 data-[state=active]:after:opacity-100 after:transition-opacity after:duration-150",
+          "pb-2.5 pt-1 px-0.5 text-[#9EA3B0] hover:text-[#FAE1DF] data-[state=active]:text-[#FAE1DF] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:bg-[#E4C3AD] after:opacity-0 data-[state=active]:after:opacity-100 after:transition-opacity after:duration-150",
         variant === "folder" &&
-          "rounded-t-[8px] px-4 py-2 bg-[#1c1c1e]/40 text-[#8e8e93] hover:text-[#f5f5f7] hover:bg-[#1c1c1e]/70 data-[state=active]:bg-[#1c1c1e] data-[state=active]:text-white",
+          "rounded-t-[8px] px-4 py-2 bg-[#132637]/50 text-[#9EA3B0] hover:text-[#FAE1DF] hover:bg-[#132637]/80 data-[state=active]:bg-[#132637] data-[state=active]:text-[#FAE1DF]",
         "disabled:pointer-events-none disabled:opacity-40",
         className
       )}

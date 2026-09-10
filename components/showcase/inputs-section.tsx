@@ -39,7 +39,7 @@ export function InputsSection() {
             <FieldLabel>input group with icon</FieldLabel>
             <InputGroup>
               <InputGroupAddon align="inline-start">
-                <MagniferIcon size={14} className="text-neutral-400" />
+                <MagniferIcon size={14} className="text-[#9EA3B0]" />
               </InputGroupAddon>
               <InputGroupInput placeholder="search query..." />
             </InputGroup>
@@ -103,7 +103,7 @@ export function InputsSection() {
 
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <div className="flex justify-between text-xs text-neutral-400">
+              <div className="flex justify-between text-xs text-[#9EA3B0]">
                 <span>concurrency limit</span>
                 <span>{sliderVal[0]}%</span>
               </div>

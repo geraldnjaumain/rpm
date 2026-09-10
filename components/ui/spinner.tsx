@@ -97,7 +97,7 @@ export function Spinner({
               transition: "opacity 120ms ease-out",
             }}
             className={cn(
-              "absolute rounded-full bg-white",
+              "absolute rounded-full bg-[#E4C3AD]",
               dotSize
             )}
           />
