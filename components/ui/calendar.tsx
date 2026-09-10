@@ -10,7 +10,7 @@ import {
 } from "react-day-picker"
 
 import { Button, buttonVariants } from "@/components/ui/button"
-import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
+import { AltArrowLeftIcon as ChevronLeftIcon, AltArrowRightIcon as ChevronRightIcon, AltArrowDownIcon as ChevronDownIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Calendar({
   className,

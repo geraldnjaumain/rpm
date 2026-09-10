@@ -5,7 +5,7 @@ import { Questionnaire as QuestionnairePrimitive } from "@shadcn/react/questionn
 import { cn } from "cn"
 
 import { buttonVariants, type Button } from "@/components/ui/button"
-import { CheckIcon } from "lucide-react"
+import { CheckReadIcon as CheckIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Questionnaire({
   className,

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cn } from "cn"
 import { OTPInput, OTPInputContext } from "input-otp"
-import { MinusIcon } from "lucide-react"
+import { MinusCircleIcon as MinusIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function InputOTP({
   className,

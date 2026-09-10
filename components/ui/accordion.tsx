@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cn } from "cn"
 import { Accordion as AccordionPrimitive } from "radix-ui"
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { AltArrowDownIcon as ChevronDownIcon, AltArrowUpIcon as ChevronUpIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Accordion({
   className,

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cn } from "cn"
 import { ContextMenu as ContextMenuPrimitive } from "radix-ui"
-import { ChevronRightIcon, CheckIcon } from "lucide-react"
+import { AltArrowRightIcon as ChevronRightIcon, CheckReadIcon as CheckIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function ContextMenu({
   ...props

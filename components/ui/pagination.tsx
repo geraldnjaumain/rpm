@@ -2,7 +2,7 @@ import * as React from "react"
 import { cn } from "cn"
 
 import { Button } from "@/components/ui/button"
-import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
+import { AltArrowLeftIcon as ChevronLeftIcon, AltArrowRightIcon as ChevronRightIcon, MenuDotsIcon as MoreHorizontalIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (

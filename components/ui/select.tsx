@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cn } from "cn"
 import { Select as SelectPrimitive } from "radix-ui"
-import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from "lucide-react"
+import { AltArrowDownIcon as ChevronDownIcon, CheckReadIcon as CheckIcon, AltArrowUpIcon as ChevronUpIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Select({
   ...props

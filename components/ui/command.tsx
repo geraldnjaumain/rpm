@@ -15,7 +15,7 @@ import {
   InputGroup,
   InputGroupAddon,
 } from "@/components/ui/input-group"
-import { SearchIcon, CheckIcon } from "lucide-react"
+import { MagniferIcon as SearchIcon, CheckReadIcon as CheckIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Command({
   className,

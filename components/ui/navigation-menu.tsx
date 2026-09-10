@@ -2,7 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 import { cn } from "cn"
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
-import { ChevronDownIcon } from "lucide-react"
+import { AltArrowDownIcon as ChevronDownIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function NavigationMenu({
   className,

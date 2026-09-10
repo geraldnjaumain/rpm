@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cn } from "cn"
 import { Slot } from "radix-ui"
-import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
+import { AltArrowRightIcon as ChevronRightIcon, MenuDotsIcon as MoreHorizontalIcon } from "@s9-labs/solar-icons/line-duotone"
 
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (
