@@ -16,6 +16,14 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
   { id: "blog", label: "blog", href: "#blog", flexRatio: 26 },
 ]
 
+interface TabRipple {
+  x: number
+  y: number
+  size: number
+  id: number
+  tabId: string
+}
+
 export interface NavbarProps {
   items?: NavItem[]
   activeId?: string
@@ -32,11 +40,22 @@ export function Navbar({
   className,
 }: NavbarProps) {
   const [internalActiveId, setInternalActiveId] = React.useState(defaultActiveId)
+  const [ripples, setRipples] = React.useState<TabRipple[]>([])
   const activeId = controlledActiveId ?? internalActiveId
 
-  const handleSelect = (item: NavItem) => {
+  const handleSelect = (item: NavItem, e?: React.MouseEvent<HTMLButtonElement>) => {
     if (!controlledActiveId) {
       setInternalActiveId(item.id)
+    }
+    if (e) {
+      const rect = e.currentTarget.getBoundingClientRect()
+      const size = Math.max(rect.width, rect.height) * 2.2
+      const x = e.clientX - rect.left - size / 2
+      const y = e.clientY - rect.top - size / 2
+      setRipples((prev) => [
+        ...prev.slice(-4),
+        { x, y, size, id: Date.now(), tabId: item.id },
+      ])
     }
     onSelect?.(item.id)
   }
@@ -58,14 +77,14 @@ export function Navbar({
       role="tablist"
       aria-label="main navigation"
       style={{
-        // Proportional compact height, slant, and gap
-        ["--nav-h" as any]: "38px",
+        // Compact, refined proportional height, slant, and gap
+        ["--nav-h" as any]: "clamp(38px, 4vw, 42px)",
         ["--slant" as any]: "calc(var(--nav-h) * 0.5612)",
         ["--gap" as any]: "calc(var(--nav-h) * 0.35)",
       }}
       className={cn(
         "relative flex select-none items-stretch overflow-hidden bg-[#0D1F2D]",
-        "h-[var(--nav-h)] w-full max-w-[340px] sm:max-w-[400px]",
+        "h-[var(--nav-h)] w-full max-w-[340px] sm:max-w-[480px] md:max-w-[500px]",
         className
       )}
     >
@@ -102,26 +121,74 @@ export function Navbar({
             role="tab"
             aria-selected={isActive}
             tabIndex={isActive ? 0 : -1}
-            onClick={() => handleSelect(item)}
+            onClick={(e) => handleSelect(item, e)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             style={{
               flex: item.flexRatio ?? 1,
               clipPath,
               marginLeft,
+              boxShadow:
+                "inset 0 1px 0 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 0 rgba(0, 0, 0, 0.20)",
             }}
             className={cn(
-              "relative flex h-full items-center justify-center border-0 font-sans outline-none",
-              "text-xs sm:text-[13px] font-medium tracking-normal",
-              "transition-colors duration-150 cursor-pointer select-none",
+              "relative flex min-w-0 h-full items-center justify-center border-0 font-sans outline-none overflow-hidden",
+              "text-xs sm:text-[14px] md:text-[15px] font-medium tracking-normal",
+              "transition-all duration-200 ease-out cursor-pointer select-none",
+              "px-3 sm:px-6",
               paddingAdjust,
+              // Orange tab has white text, Blueish tabs have black text
               isActive
-                ? "bg-[#B96D3B] text-[#0D1F2D] hover:bg-[#c87a46]"
-                : "bg-[#9EA3B0] text-[#FFFFFF] hover:bg-[#adb2bd]",
+                ? "bg-[#B96D3B] text-[#FFFFFF] hover:bg-[#c87a46]"
+                : "bg-[#9EA3B0] text-[#0D1F2D] hover:bg-[#a9aeb9]",
               "focus-visible:ring-2 focus-visible:ring-[#B96D3B]/70 focus-visible:ring-offset-0",
-              "active:scale-[0.99]"
+              "active:scale-[0.985]"
             )}
           >
-            <span className="relative z-10 truncate px-2 sm:px-3">{item.label}</span>
+            {/* Subtle depth gradient overlay */}
+            <span
+              className="pointer-events-none absolute inset-0 z-0 opacity-80"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, 0.10) 100%)",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Subtle micro-texture overlay */}
+            <span
+              className="pointer-events-none absolute inset-0 z-0 opacity-[0.035] mix-blend-overlay"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                backgroundSize: "4px 4px",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Ripple effect */}
+            {ripples
+              .filter((r) => r.tabId === item.id)
+              .map((ripple) => (
+                <span
+                  key={ripple.id}
+                  className={cn(
+                    "pointer-events-none absolute z-10 rounded-full animate-ripple",
+                    isActive ? "bg-white/30" : "bg-black/20"
+                  )}
+                  style={{
+                    left: ripple.x,
+                    top: ripple.y,
+                    width: ripple.size,
+                    height: ripple.size,
+                  }}
+                  onAnimationEnd={() => {
+                    setRipples((prev) => prev.filter((r) => r.id !== ripple.id))
+                  }}
+                  aria-hidden="true"
+                />
+              ))}
+
+            <span className="relative z-20 whitespace-nowrap">{item.label}</span>
           </button>
         )
       })}
