@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("dark h-full", "font-sans", geist.variable)}>
-      <body className="min-h-full flex flex-col font-sans bg-[#0D1F2D] text-white antialiased">
+    <html lang="en" className={cn("dark h-full overflow-x-hidden", "font-sans", geist.variable)}>
+      <body className="min-h-full w-full max-w-full overflow-x-hidden flex flex-col font-sans bg-[#0D1F2D] text-white antialiased">
         <TooltipProvider>
           {children}
           <Toaster />

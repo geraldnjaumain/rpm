@@ -2,16 +2,24 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { Home2Icon } from "@s9-labs/solar-icons/bold"
 
 export interface NavItem {
   id: string
   label: string
   href?: string
   flexRatio?: number
+  icon?: React.ReactNode
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { id: "about-us", label: "about us", href: "#about-us", flexRatio: 28 },
+  {
+    id: "home",
+    label: "home",
+    href: "#home",
+    flexRatio: 26,
+    icon: <Home2Icon className="size-4 shrink-0" />,
+  },
   { id: "our-services", label: "our services", href: "#our-services", flexRatio: 38 },
   { id: "blog", label: "blog", href: "#blog", flexRatio: 26 },
 ]
@@ -35,7 +43,7 @@ export interface NavbarProps {
 export function Navbar({
   items = DEFAULT_NAV_ITEMS,
   activeId: controlledActiveId,
-  defaultActiveId = "about-us",
+  defaultActiveId = "home",
   onSelect,
   className,
 }: NavbarProps) {
@@ -84,7 +92,7 @@ export function Navbar({
       }}
       className={cn(
         "relative flex select-none items-stretch overflow-hidden bg-[#0D1F2D]",
-        "h-[var(--nav-h)] w-full max-w-[360px] sm:max-w-[560px] md:max-w-[600px]",
+        "h-[var(--nav-h)] w-full max-w-[320px] sm:max-w-[540px] md:max-w-[580px]",
         className
       )}
     >
@@ -99,20 +107,16 @@ export function Navbar({
         // Last segment: slanted left edge, straight right edge
         let clipPath = ""
         let marginLeft = "0px"
-        let paddingAdjust = ""
 
         if (isFirst) {
           clipPath = "polygon(0 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%)"
           marginLeft = "0px"
-          paddingAdjust = "pr-[calc(var(--slant)*0.2)]"
         } else if (isLast) {
           clipPath = "polygon(var(--slant) 0, 100% 0, 100% 100%, 0 100%)"
           marginLeft = "calc(var(--gap) - var(--slant))"
-          paddingAdjust = "pl-[calc(var(--slant)*0.2)]"
         } else {
           clipPath = "polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%)"
           marginLeft = "calc(var(--gap) - var(--slant))"
-          paddingAdjust = ""
         }
 
         return (
@@ -135,7 +139,6 @@ export function Navbar({
               "text-xs sm:text-[14px] md:text-[15px] font-medium tracking-normal",
               "transition-all duration-200 ease-out cursor-pointer select-none",
               "px-4 sm:px-8 md:px-10",
-              paddingAdjust,
               // Orange tab has white text, Blueish tabs have black text
               isActive
                 ? "bg-[#B96D3B] text-[#FFFFFF] hover:bg-[#c87a46]"
@@ -188,7 +191,16 @@ export function Navbar({
                 />
               ))}
 
-            <span className="relative z-20 whitespace-nowrap">{item.label}</span>
+            <span
+              className={cn(
+                "relative z-20 inline-flex items-center gap-1.5 whitespace-nowrap",
+                isFirst && "-translate-x-2 sm:-translate-x-3",
+                isLast && "translate-x-2 sm:translate-x-3"
+              )}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </span>
           </button>
         )
       })}
