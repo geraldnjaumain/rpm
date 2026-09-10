@@ -27,10 +27,10 @@ export default function Home() {
         </div>
 
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full">
-            <TabsTrigger value="overview" className="flex-1">overview</TabsTrigger>
-            <TabsTrigger value="systems" className="flex-1">systems</TabsTrigger>
-            <TabsTrigger value="status" className="flex-1">status</TabsTrigger>
+          <TabsList>
+            <TabsTrigger value="overview">overview</TabsTrigger>
+            <TabsTrigger value="systems">systems</TabsTrigger>
+            <TabsTrigger value="status">status</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="flex flex-col gap-3 pt-2">
