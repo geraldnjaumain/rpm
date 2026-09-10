@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn("dark h-full", "font-sans", geist.variable)}>
-      <body className="min-h-full flex flex-col font-sans bg-black text-white antialiased">
+      <body className="min-h-full flex flex-col font-sans bg-[#0D1F2D] text-[#FAE1DF] antialiased">
         <TooltipProvider>
           {children}
           <Toaster />
