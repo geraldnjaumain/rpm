@@ -1,13 +1,14 @@
 "use client"
 
 import * as React from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Home2Icon } from "@s9-labs/solar-icons/bold"
 
 export interface NavItem {
   id: string
   label: string
-  href?: string
+  href: string
   flexRatio?: number
   icon?: React.ReactNode
 }
@@ -16,12 +17,12 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
   {
     id: "home",
     label: "home",
-    href: "#home",
+    href: "/",
     flexRatio: 26,
     icon: <Home2Icon className="size-4 shrink-0" />,
   },
-  { id: "our-services", label: "our services", href: "#our-services", flexRatio: 38 },
-  { id: "blog", label: "blog", href: "#blog", flexRatio: 26 },
+  { id: "our-services", label: "our services", href: "/our-services", flexRatio: 38 },
+  { id: "blog", label: "blog", href: "/blog", flexRatio: 26 },
 ]
 
 interface TabRipple {
@@ -47,9 +48,20 @@ export function Navbar({
   onSelect,
   className,
 }: NavbarProps) {
+  const pathname = usePathname()
+  const router = useRouter()
   const [internalActiveId, setInternalActiveId] = React.useState(defaultActiveId)
   const [ripples, setRipples] = React.useState<TabRipple[]>([])
-  const activeId = controlledActiveId ?? internalActiveId
+
+  // Automatically determine active ID from current pathname if not controlled
+  const routeActiveId = React.useMemo(() => {
+    if (pathname === "/") return "home"
+    if (pathname.startsWith("/our-services")) return "our-services"
+    if (pathname.startsWith("/blog")) return "blog"
+    return defaultActiveId
+  }, [pathname, defaultActiveId])
+
+  const activeId = controlledActiveId ?? (pathname ? routeActiveId : internalActiveId)
 
   const handleSelect = (item: NavItem, e?: React.MouseEvent<HTMLButtonElement>) => {
     if (!controlledActiveId) {
@@ -66,6 +78,9 @@ export function Navbar({
       ])
     }
     onSelect?.(item.id)
+    if (item.href && item.href !== pathname) {
+      router.push(item.href)
+    }
   }
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
@@ -85,7 +100,7 @@ export function Navbar({
       role="tablist"
       aria-label="main navigation"
       style={{
-        // Vertical height preserved exactly as requested
+        // Vertical height preserved exactly
         ["--nav-h" as any]: "clamp(38px, 4vw, 42px)",
         ["--slant" as any]: "calc(var(--nav-h) * 0.5612)",
         ["--gap" as any]: "calc(var(--nav-h) * 0.35)",
