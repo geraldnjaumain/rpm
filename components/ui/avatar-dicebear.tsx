@@ -4,7 +4,7 @@ import * as React from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-export interface DicebearAvatarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DicebearAvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "style"> {
   /**
    * Seed identifier for the avatar (username, email, id, etc.)
    */
@@ -12,7 +12,11 @@ export interface DicebearAvatarProps extends React.HTMLAttributes<HTMLDivElement
   /**
    * Dicebear avatar style. Default is "shapes"
    */
-  style?: "shapes" | "bottts-neutral" | "identicon" | "thumbs"
+  avatarStyle?: "shapes" | "bottts-neutral" | "identicon" | "thumbs"
+  /**
+   * Inline CSS properties
+   */
+  style?: React.CSSProperties
   /**
    * Size presets or pixel number
    */
@@ -25,14 +29,15 @@ export interface DicebearAvatarProps extends React.HTMLAttributes<HTMLDivElement
 
 export function DicebearAvatar({
   seed,
-  style = "shapes",
+  avatarStyle = "shapes",
   size = "md",
   alt = "user avatar",
   className,
+  style,
   ...props
 }: DicebearAvatarProps) {
   const pixelSize = typeof size === "number" ? size : size === "sm" ? 24 : size === "lg" ? 40 : 32
-  const avatarUrl = `https://api.dicebear.com/9.x/${style}/svg?seed=${encodeURIComponent(seed)}`
+  const avatarUrl = `https://api.dicebear.com/9.x/${avatarStyle}/svg?seed=${encodeURIComponent(seed)}`
 
   return (
     <div
@@ -43,7 +48,10 @@ export function DicebearAvatar({
         size === "lg" && "size-10",
         className
       )}
-      style={typeof size === "number" ? { width: pixelSize, height: pixelSize } : undefined}
+      style={{
+        ...(typeof size === "number" ? { width: pixelSize, height: pixelSize } : {}),
+        ...style,
+      }}
       {...props}
     >
       <img

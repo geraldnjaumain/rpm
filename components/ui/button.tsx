@@ -9,6 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-white text-black hover:bg-neutral-200 active:bg-neutral-300",
+        outline: "bg-[#2c2c2e] text-[#f5f5f7] hover:bg-[#3a3a3c] active:bg-[#48484a]",
         secondary: "bg-[#2c2c2e] text-[#f5f5f7] hover:bg-[#3a3a3c] active:bg-[#48484a]",
         ghost: "bg-transparent text-[#f5f5f7] hover:bg-[#2c2c2e]/60 active:bg-[#2c2c2e]",
         destructive: "bg-[#ff453a]/20 text-[#ff453a] hover:bg-[#ff453a]/30 active:bg-[#ff453a]/40",
@@ -17,10 +18,13 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-8 px-3 gap-1.5",
+        xs: "h-6 px-2 text-[0.7rem] gap-1 rounded-[6px]",
         sm: "h-7 px-2.5 text-[0.75rem] gap-1",
         lg: "h-9 px-4 text-sm gap-2",
         icon: "size-8 p-0",
+        "icon-xs": "size-6 p-0 rounded-[6px] [&_svg:not([class*='size-'])]:size-3",
         "icon-sm": "size-7 p-0",
+        "icon-lg": "size-9 p-0",
       },
     },
     defaultVariants: {
