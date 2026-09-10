@@ -29,11 +29,11 @@ These rules are mandatory and must be strictly followed for all code and design 
      - `#193146`: Slate Navy (secondary surfaces, controls, inputs, and track states)
      - `#203C55`: Highlight Navy (hover, focus, and active press states)
      - `#9EA3B0`: Slate Blue (secondary / muted typography and subtle accents)
-     - `#E4C3AD`: Almond Peach (brand accent, primary actions, and active indicator line)
-     - `#FAE1DF`: Soft Blush / Cream (primary foreground typography)
+     - `#B96D3B`: Caramel Amber / Terracotta (brand accent, primary actions, and active indicator line)
+     - `#FFFFFF`: Pure White (primary foreground typography)
 
 3. **No Tinted Buttons**:
-   - Primary buttons use the accent `#E4C3AD` with `#0D1F2D` text; secondary and outline buttons use `#193146` with `#FAE1DF` text and `#203C55` hover state.
+   - Primary buttons use the accent `#B96D3B` with `#0D1F2D` text; secondary and outline buttons use `#193146` with `#FFFFFF` text and `#203C55` hover state.
 
 4. **Minimal Custom Classnames**:
    - Keep custom classnames to a minimum; always prefer Tailwind primitives and utility classes.
@@ -94,7 +94,7 @@ These rules are mandatory and must be strictly followed for all code and design 
 
 21. **Conventional Tabs**:
     - Never use shadcn default floating pill box tabs.
-    - Use conventional horizontal tabs (open baseline with `#E4C3AD` active underline indicator or docked folder tabs).
+    - Use conventional horizontal tabs (open baseline with `#B96D3B` active underline indicator or docked folder tabs).
 
 22. **Skills Installation**:
     - Before using a certain technology or package, install the skill in `.agents/skills/`.

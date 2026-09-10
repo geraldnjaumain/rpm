@@ -8,13 +8,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#E4C3AD] text-[#0D1F2D] font-medium hover:bg-[#ebd0ce] active:bg-[#d9c0be]",
-        outline: "bg-[#193146] text-[#FAE1DF] hover:bg-[#203C55] active:bg-[#284966]",
-        secondary: "bg-[#193146] text-[#FAE1DF] hover:bg-[#203C55] active:bg-[#284966]",
-        ghost: "bg-transparent text-[#FAE1DF] hover:bg-[#193146]/60 active:bg-[#193146]",
+        default: "bg-[#B96D3B] text-[#0D1F2D] font-medium hover:bg-[#c87a46] active:bg-[#a85f31]",
+        outline: "bg-[#193146] text-[#FFFFFF] hover:bg-[#203C55] active:bg-[#284966]",
+        secondary: "bg-[#193146] text-[#FFFFFF] hover:bg-[#203C55] active:bg-[#284966]",
+        ghost: "bg-transparent text-[#FFFFFF] hover:bg-[#193146]/60 active:bg-[#193146]",
         destructive: "bg-[#ff453a]/20 text-[#ff6961] hover:bg-[#ff453a]/30 active:bg-[#ff453a]/40",
-        link: "bg-transparent text-[#E4C3AD] underline-offset-4 hover:underline p-0 h-auto",
-        pill: "rounded-full bg-[#193146] text-[#FAE1DF] hover:bg-[#203C55] active:bg-[#284966]",
+        link: "bg-transparent text-[#B96D3B] underline-offset-4 hover:underline p-0 h-auto",
+        pill: "rounded-full bg-[#193146] text-[#FFFFFF] hover:bg-[#203C55] active:bg-[#284966]",
       },
       size: {
         default: "h-8 px-3 gap-1.5",

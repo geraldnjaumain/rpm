@@ -58,14 +58,14 @@ export function Navbar({
       role="tablist"
       aria-label="main navigation"
       style={{
-        // Dynamically compute fluid height and proportional slant & gap
-        ["--nav-h" as any]: "clamp(54px, 7vw, 98px)",
+        // Proportional compact height, slant, and gap
+        ["--nav-h" as any]: "38px",
         ["--slant" as any]: "calc(var(--nav-h) * 0.5612)",
         ["--gap" as any]: "calc(var(--nav-h) * 0.35)",
       }}
       className={cn(
-        "relative flex w-full select-none items-stretch overflow-hidden bg-[#0D1F2D]",
-        "h-[var(--nav-h)]",
+        "relative flex select-none items-stretch overflow-hidden bg-[#0D1F2D]",
+        "h-[var(--nav-h)] w-full max-w-[340px] sm:max-w-[400px]",
         className
       )}
     >
@@ -111,17 +111,17 @@ export function Navbar({
             }}
             className={cn(
               "relative flex h-full items-center justify-center border-0 font-sans outline-none",
-              "text-lg sm:text-2xl md:text-[26px] lg:text-[28px] font-normal sm:font-medium tracking-normal",
-              "transition-colors duration-200 cursor-pointer select-none",
+              "text-xs sm:text-[13px] font-medium tracking-normal",
+              "transition-colors duration-150 cursor-pointer select-none",
               paddingAdjust,
               isActive
-                ? "bg-[#E4C3AD] text-[#0D1F2D] hover:bg-[#edd0be]"
-                : "bg-[#9EA3B0] text-[#FAE1DF] hover:bg-[#a9aeb9] hover:text-[#FFFFFF]",
-              "focus-visible:ring-2 focus-visible:ring-[#E4C3AD]/70 focus-visible:ring-offset-0",
-              "active:scale-[0.995]"
+                ? "bg-[#B96D3B] text-[#0D1F2D] hover:bg-[#c87a46]"
+                : "bg-[#9EA3B0] text-[#FFFFFF] hover:bg-[#adb2bd]",
+              "focus-visible:ring-2 focus-visible:ring-[#B96D3B]/70 focus-visible:ring-offset-0",
+              "active:scale-[0.99]"
             )}
           >
-            <span className="relative z-10 truncate px-4">{item.label}</span>
+            <span className="relative z-10 truncate px-2 sm:px-3">{item.label}</span>
           </button>
         )
       })}

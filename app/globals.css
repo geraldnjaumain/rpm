@@ -14,34 +14,34 @@ body {
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
   --color-sidebar-ring: transparent;
   --color-sidebar-border: transparent;
-  --color-sidebar-accent-foreground: #FAE1DF;
+  --color-sidebar-accent-foreground: #FFFFFF;
   --color-sidebar-accent: #193146;
   --color-sidebar-primary-foreground: #0D1F2D;
-  --color-sidebar-primary: #E4C3AD;
-  --color-sidebar-foreground: #FAE1DF;
+  --color-sidebar-primary: #B96D3B;
+  --color-sidebar-foreground: #FFFFFF;
   --color-sidebar: #132637;
   --color-chart-5: #546A7B;
   --color-chart-4: #9EA3B0;
   --color-chart-3: #B9BDC7;
-  --color-chart-2: #E4C3AD;
-  --color-chart-1: #FAE1DF;
+  --color-chart-2: #B96D3B;
+  --color-chart-1: #FFFFFF;
   --color-ring: transparent;
   --color-input: #193146;
   --color-border: transparent;
   --color-destructive: #ff453a;
-  --color-accent-foreground: #FAE1DF;
+  --color-accent-foreground: #FFFFFF;
   --color-accent: #193146;
   --color-muted-foreground: #9EA3B0;
   --color-muted: #193146;
-  --color-secondary-foreground: #FAE1DF;
+  --color-secondary-foreground: #FFFFFF;
   --color-secondary: #193146;
   --color-primary-foreground: #0D1F2D;
-  --color-primary: #E4C3AD;
-  --color-popover-foreground: #FAE1DF;
+  --color-primary: #B96D3B;
+  --color-popover-foreground: #FFFFFF;
   --color-popover: #152B3E;
-  --color-card-foreground: #FAE1DF;
+  --color-card-foreground: #FFFFFF;
   --color-card: #132637;
-  --color-foreground: #FAE1DF;
+  --color-foreground: #FFFFFF;
   --color-background: #0D1F2D;
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -54,37 +54,44 @@ body {
 
 :root, .dark {
   --background: #0D1F2D;
-  --foreground: #FAE1DF;
+  --foreground: #FFFFFF;
   --card: #132637;
-  --card-foreground: #FAE1DF;
+  --card-foreground: #FFFFFF;
   --popover: #152B3E;
-  --popover-foreground: #FAE1DF;
-  --primary: #E4C3AD;
+  --popover-foreground: #FFFFFF;
+  --primary: #B96D3B;
   --primary-foreground: #0D1F2D;
   --secondary: #193146;
-  --secondary-foreground: #FAE1DF;
+  --secondary-foreground: #FFFFFF;
   --muted: #193146;
   --muted-foreground: #9EA3B0;
   --accent: #193146;
-  --accent-foreground: #FAE1DF;
+  --accent-foreground: #FFFFFF;
   --destructive: #ff453a;
   --border: transparent;
   --input: #193146;
   --ring: transparent;
   --radius: 8px;
-  --chart-1: #FAE1DF;
-  --chart-2: #E4C3AD;
+  --chart-1: #FFFFFF;
+  --chart-2: #B96D3B;
   --chart-3: #9EA3B0;
   --chart-4: #546A7B;
   --chart-5: #193146;
   --sidebar: #132637;
-  --sidebar-foreground: #FAE1DF;
-  --sidebar-primary: #E4C3AD;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #B96D3B;
   --sidebar-primary-foreground: #0D1F2D;
   --sidebar-accent: #193146;
-  --sidebar-accent-foreground: #FAE1DF;
+  --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: transparent;
   --sidebar-ring: transparent;
+}
+
+@layer utilities {
+  .text-stroke-20 {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    paint-order: stroke fill;
+  }
 }
 
 @layer base {
