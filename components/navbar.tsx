@@ -106,7 +106,7 @@ export function Navbar({
         ["--gap" as any]: "calc(var(--nav-h) * 0.35)",
       }}
       className={cn(
-        "relative flex select-none items-stretch overflow-hidden bg-[#0D1F2D]",
+        "relative flex select-none items-stretch overflow-hidden bg-transparent",
         "h-[var(--nav-h)] w-full max-w-[320px] sm:max-w-[540px] md:max-w-[580px]",
         className
       )}

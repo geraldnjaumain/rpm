@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 export interface ConcentricPatternProps
   extends Omit<React.CanvasHTMLAttributes<HTMLCanvasElement>, "color"> {
-  shape?: 0 | 1 | 2 // 0: Triangle, 1: Circle, 2: Square
+  shape?: 0 | 1 | 2 | 3 // 0: Triangle, 1: Circle, 2: Square, 3: Lines
   ringCount?: number
   falloff?: number
   inverseFalloff?: boolean
@@ -41,7 +41,7 @@ export function ConcentricPattern({
 
     // Parameters
     const currentShape = shape
-    const currentRingCount = Math.min(60, Math.max(1, ringCount))
+    const currentRingCount = Math.max(1, ringCount)
     const currentFalloff = Math.min(5, Math.max(0, falloff))
     const currentInverseFalloff = inverseFalloff ? 1 : 0
     const currentColor = [
@@ -106,7 +106,8 @@ out vec4 fragColor;
 float shapeDistance(vec2 p, int shape) {
   if (shape == 0) { return max(p.y, (sqrt(3.0) * abs(p.x) - p.y) * 0.5); }
   if (shape == 1) { return length(p); }
-  return max(abs(p.x), abs(p.y));
+  if (shape == 2) { return max(abs(p.x), abs(p.y)); }
+  return p.y;
 }
 
 void main() {
@@ -127,11 +128,16 @@ void main() {
   float distance = shapeDistance(rotatedPosition, shape);
   float scaledDistance = distance * ringCount;
   float ringPosition = fract(scaledDistance + offset);
-  float blendWidth = min(fwidth(scaledDistance) * 1.5, 0.2499);
+  
+  float fw = fwidth(scaledDistance);
+  float blendWidth = min(fw * 1.5, 0.2499);
+  float lineThickness = max(0.5 * fw, 0.001);
+  
   float leadingEdge = smoothstep(0.0, blendWidth, ringPosition);
-  float trailingEdge = smoothstep(0.5 - blendWidth, 0.5, ringPosition);
+  float trailingEdge = smoothstep(lineThickness, lineThickness + blendWidth, ringPosition);
   float band = leadingEdge * (1.0 - trailingEdge);
-  float normalFalloff = exp(-distance * falloff);
+  
+  float normalFalloff = exp(-length(position) * falloff);
   float fade = normalFalloff;
   if (inverseFalloff) { fade = 1.0 - normalFalloff; }
   float alpha = band * fade * color.a;
@@ -149,7 +155,8 @@ varying vec2 v_uv;
 float shapeDistance(vec2 p, int shape) {
   if (shape == 0) { return max(p.y, (sqrt(3.0) * abs(p.x) - p.y) * 0.5); }
   if (shape == 1) { return length(p); }
-  return max(abs(p.x), abs(p.y));
+  if (shape == 2) { return max(abs(p.x), abs(p.y)); }
+  return p.y;
 }
 
 void main() {
@@ -171,14 +178,17 @@ void main() {
   float scaledDistance = distance * ringCount;
   float ringPosition = fract(scaledDistance + offset);
   #ifdef GL_OES_standard_derivatives
-  float blendWidth = min(fwidth(scaledDistance) * 1.5, 0.2499);
+  float fw = fwidth(scaledDistance);
+  float blendWidth = min(fw * 1.5, 0.2499);
+  float lineThickness = max(0.5 * fw, 0.001);
   #else
   float blendWidth = 0.02;
+  float lineThickness = 0.01;
   #endif
   float leadingEdge = smoothstep(0.0, blendWidth, ringPosition);
-  float trailingEdge = smoothstep(0.5 - blendWidth, 0.5, ringPosition);
+  float trailingEdge = smoothstep(lineThickness, lineThickness + blendWidth, ringPosition);
   float band = leadingEdge * (1.0 - trailingEdge);
-  float normalFalloff = exp(-distance * falloff);
+  float normalFalloff = exp(-length(position) * falloff);
   float fade = normalFalloff;
   if (inverseFalloff) { fade = 1.0 - normalFalloff; }
   float alpha = band * fade * color.a;
